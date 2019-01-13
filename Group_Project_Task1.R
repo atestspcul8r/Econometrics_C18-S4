@@ -421,13 +421,15 @@ LDR_PG_TS = ts(DailyData$LDR_PG)
 # 
 # 
 # 
-# # Construct the ACF 
+# # Construct the ACF using Acf package which will eliminate zero lag value
 #
 acf(LDR_MMM_TS)
-acf(LDR_GPC_TS)
-acf(LDR_JNJ_TS)
-acf(LDR_LOW_TS)
-acf(LDR_PG_TS)
+Acf(LDR_MMM_TS)
+#compare plots for accuracy
+Acf(LDR_GPC_TS)
+Acf(LDR_JNJ_TS)
+Acf(LDR_LOW_TS)
+Acf(LDR_PG_TS)
 # # acf(CPI_percent_change_truncated)
 # 
 # # Now Construct the partial autocorrelation of the two objects
