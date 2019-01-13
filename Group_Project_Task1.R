@@ -73,12 +73,13 @@ head(DailyData,10)
          
 ggplot(data = DailyData, aes(x = Date, y = MMM_AdjClose))+
   ggtitle("Daily Adjusted Close Prices  1-1-2009 to 8-31-2018") + 
-  labs(x = "Year", y = "Stock Adjusted Close Price in Dollars") +
-  geom_line(mapping = aes(x = Date,y = MMM_AdjClose), color = "darkblue") +
-  geom_line(mapping = aes(x = Date,y = GPC_AdjClose), color="red") +
-  geom_line(mapping = aes(x = Date,y = JNJ_AdjClose), color="darkgreen") +
-  geom_line(mapping = aes(x = Date,y = LOW_AdjClose), color="black") +
-  geom_line(mapping = aes(x = Date,y = PG_AdjClose), color="orange") 
+  labs(color = "Equity", x = "Year", y = "Stock Adjusted Close Price in Dollars") +
+  geom_line(mapping = aes(x = Date,y = MMM_AdjClose, color = "MMM")) +
+  geom_line(mapping = aes(x = Date,y = GPC_AdjClose, color = "GPC")) +
+  geom_line(mapping = aes(x = Date,y = JNJ_AdjClose, color = "JNJ")) +
+  geom_line(mapping = aes(x = Date,y = LOW_AdjClose, color ="LOW")) +
+  geom_line(mapping = aes(x = Date,y = PG_AdjClose, color = "PG")) +
+  scale_colour_manual(name='', values=c('MMM'='blue', 'GPC'='red', 'JNJ'='darkgreen', 'LOW'='black', 'PG'='orange'))
 # 
 ggsave("D:/WQU/MSCFE/Econometrics_v2/Group Work/Project1 Stock Prices.png")
 # 
