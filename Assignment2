@@ -41,10 +41,10 @@ chooseStocks<-function(Symbols){
       getSymbols(sym, from="2009-01-01", auto.assign=FALSE)[,6]
     })
     returns = lapply(ticker[[1]], function(sym) {
-      dailyReturn(na.omit(getSymbols(sym, from="2009-01-01", auto.assign=FALSE)[,6]))
+      dailyReturn(na.omit(getSymbols(sym, from="2009-01-01", to="2018-10-25", auto.assign=FALSE)[,6]))
     })
     log_returns= lapply(ticker[[1]], function(sym) {
-      dailyReturn(na.omit(getSymbols(sym, from="2009-01-01", auto.assign=FALSE)[,6]), type='log')
+      dailyReturn(na.omit(getSymbols(sym, from="2009-01-01", to="2018-10-25", auto.assign=FALSE)[,6]), type='log')
     })
     
     portfolio<-cbind(do.call(cbind, Stocks), do.call(cbind, returns), do.call(cbind, log_returns))
